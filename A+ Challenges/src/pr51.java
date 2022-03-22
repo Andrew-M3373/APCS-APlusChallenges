@@ -12,19 +12,15 @@ public class pr51 {
 		for (int i = 0; i < lines; i ++) {
 			ArrayList<String> list = new ArrayList<String>();
 			String line = scanner.nextLine();
+			line = line.replaceAll(" ", "");
 			for(int j = 0; j < line.length(); j++) {
 				list.add(line.substring(j,j+1));
 			}
 			
 			Collections.sort(list);
-//			for (int j = 0; j < list.size(); j++) {
-//				if (list.get(j).equals(" ")) list.remove(j);
-////				else if (list.get(j+1).equals(list.get(j))) list.remove(j+1);
-//			}
 
 			Set<String> set = new LinkedHashSet<>(list);
 			
-			if (set.remove(0));
 			for (String s : set) {
 				System.out.print(s);
 			}
