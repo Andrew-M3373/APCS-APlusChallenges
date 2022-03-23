@@ -13,6 +13,17 @@ public class pr52 {
 //			ArrayList<String> list = new ArrayList<String>();
 			
 			List<String> list = Arrays.asList(line.split(" "));
+			List<String[]> newList = new ArrayList<String[]>();
+			
+			for (String s : list) {
+				String[] array = new String[list.size()];
+				for (int j = 0; j < s.length(); j++) {
+					array[j] = s.substring(j,j+1);
+				}
+				newList.add(array);
+			}
+				
+			System.out.println(newList.toString().toString());
 			
 			for (int j = 0; j < list.size(); j++) {
 				for (String s : list) {
