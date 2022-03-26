@@ -10,28 +10,31 @@ public class pr52 {
 		
 		for (int i = 0; i < lines; i ++) {
 			String line = scanner.nextLine();
-//			ArrayList<String> list = new ArrayList<String>();
 			
-			List<String> list = Arrays.asList(line.split(" "));
-			List<String[]> newList = new ArrayList<String[]>();
+			// Initialize ArrayList of ArrayLists
+			List<List<String>> arr = new ArrayList<List<String>>();
 			
-			for (String s : list) {
-				String[] array = new String[list.size()];
-				for (int j = 0; j < s.length(); j++) {
-					array[j] = s.substring(j,j+1);
-				}
-				newList.add(array);
-			}
-				
-			System.out.println(newList.toString().toString());
-			
-			for (int j = 0; j < list.size(); j++) {
-				for (String s : list) {
-					if (j == list.get(j).lastIndexOf(list.get(j))) {
-						
-					}
+			// Fill ArrayList of ArrayLists
+			String[] temp = line.split(" ");
+			for (int k = 0; k < temp.length; k++) {
+				arr.add(new ArrayList<String>());
+				for (int j = 0; j < temp[k].length(); j++) {
+					arr.get(k).add(temp[k].substring(j,j+1));
 				}
 			}
+			
+			/* Test Printing out ArrayList of ArrayLists
+			for (List<String> s : arr)
+				System.out.println(s.toString());
+			*/
+			
+			// Sort, remove duplicate letters, printout
+			for (List<String> s : arr) {
+				Collections.sort(s);
+				Set<String> set = new LinkedHashSet<>(s);
+				System.out.print(set.toString().replaceAll(" |,|\\[|\\]", "") + " ");
+			}
+			System.out.println();
 			
 		}
 		
